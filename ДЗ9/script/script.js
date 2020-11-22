@@ -25,11 +25,24 @@ function Animal(name) {
 function Cat(name){
     Animal.apply(this, arguments);
     var parentFeed = this.feed;
+
+    
     this.feed = function() {
         console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
-        console.log('кот доволен ^_^')
+        console.log('Кот доволен ^_^');
+        return this;
     };
+
+
+
+    this.stroke = function(){
+        console.log('Гладим кота');
+        return this;
+    }
+
 }
+
+
 console.log(Cat);
 var barsik = new Cat('bars');
 
@@ -44,3 +57,8 @@ console.log(barsik.feed());
 
 console.log(barsik.dailyNorm(250));
 console.log(barsik.feed());
+console.log(barsik.stroke());
+console.log(barsik.Obj);
+
+var animal = new Animal(2);
+console.log(animal.feed());
