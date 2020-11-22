@@ -1,5 +1,5 @@
-function Cat(name) {
-    var foodAmount = 50;
+function Animal(name) {
+    this.foodAmount = 50;
 
     function formatFoodAmount() {
         return foodAmount + ' гр.';
@@ -22,7 +22,13 @@ function Cat(name) {
     };
 }
 
-var barsik = new Cat('Барсик');
+function Cat(name){
+    Animal.call(this);
+
+}
+console.log(Cat);
+var barsik = new Cat('bars');
+
 
 console.log(barsik.name);
 
@@ -34,4 +40,3 @@ console.log(barsik.feed());
 
 console.log(barsik.dailyNorm(250));
 console.log(barsik.feed());
-
