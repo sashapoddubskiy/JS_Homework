@@ -1,5 +1,5 @@
 function Animal(name) {
-    this.foodAmount = 50;
+    var foodAmount = 50;
 
     function formatFoodAmount() {
         return foodAmount + ' гр.';
@@ -23,8 +23,12 @@ function Animal(name) {
 }
 
 function Cat(name){
-    Animal.call(this);
-
+    Animal.apply(this, arguments);
+    var parentFeed = this.feed;
+    this.feed = function() {
+        console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма.');
+        console.log('кот доволен ^_^')
+    };
 }
 console.log(Cat);
 var barsik = new Cat('bars');
